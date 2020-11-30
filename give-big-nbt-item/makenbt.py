@@ -1,4 +1,9 @@
 #!/usr/bin/env python3
+"""
+Adds a 2MB NBT tag to the first item in a player's inventory
+
+Made for release 1.0
+"""
 
 import string
 import random
