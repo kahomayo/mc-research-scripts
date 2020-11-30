@@ -7,18 +7,20 @@ BSD-2 Clause License, Copyright 2016 Stavros Korokithakis. See sample-LICENSE.
 
 Install fusepy with `pip3 install fusepy`.
 
-Assuming the world you use is saved at `a/world1` and your minecraft saves are
-at `b`
+Assuming the world you use is saved at `a/world1`.
 
 ```
-mkdir `b/world1`
-python3 level-fuse.py a/world1 b/world1
+mkdir `a/world1-mean-fs`
+python3 level-fuse.py a/world1 a/world1-mean-fs
 ```
 
-Run minecraft, play until b/world1 no longer contains a level.dat.  Quit the
-filesystem with Ctrl+C.
+Run minecraft, open and close world1-mean-fs. Quit the filesystem with Ctrl+C.
+Minecraft will have deleted the `level.dat` and `level.dat_old` of world1.
 
 ## No, mom, I swear it's not cheating
+
+I don't consider this cheating as this filesystem doesn't violate the semantics
+of a filesystem and all changes to the folder are done by minecraft itself.
 
 All that this filesystem is doing, is disallowing files named `level.dat` from
 being moved. The only difference from the sample are these lines:
@@ -44,10 +46,7 @@ This filesystem also doesn't change how directories or files are stored, it
 doesn't delete or create any files on its own. The only difference is that it is
 selective about which renames it allows.
 
-The reason that this is useful, is that minecraft ignores errors when renaming
+The reason that this is useful, is that Minecraft ignores errors when renaming
 files. If `level.dat` -> `level.dat_old` fails, Minecraft just continues with
 the next command, which is deleting `level.dat`.
 
-In conclusion: I don't consider this cheating as this filesystem doesn't violate
-the semantics of a filesystem and the relevant deletion is done by minecraft
-itself.
