@@ -10,7 +10,7 @@ Install fusepy with `pip3 install fusepy`.
 Assuming the world you use is saved at `a/world1`.
 
 ```
-mkdir `a/world1-mean-fs`
+mkdir a/world1-mean-fs
 python3 level-fuse.py a/world1 a/world1-mean-fs
 ```
 
