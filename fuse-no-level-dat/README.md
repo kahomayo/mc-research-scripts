@@ -5,17 +5,28 @@ BSD-2 Clause License, Copyright 2016 Stavros Korokithakis. See sample-LICENSE.
 
 ## Usage:
 
-Install fusepy with `pip3 install fusepy`.
+Download the `level-fuse.py` script somewhere onto your PC, e.g.
+to `~/Downloads/fuse-no-level-dat/level-fuse.py`. If you don't want to
+download the entire repository, you can click on the `level-fuse.py`
+file above, click on the "Raw" button and then save the file with Ctrl+S.
 
-Assuming the world you use is saved at `a/world1`.
+Now open a terminal and enter the following commands (you don't need to type in
+the lines starting with `#`, they are just explanations). This example assumes
+that your world is `.minecraft/saves/world1`, replace that with the path to
+your world folder.
 
+```sh
+# Install the tool that this script uses
+pip3 install fusepy
+# Create a new folder next to your world
+mkdir .minecraft/saves/world1-mean-fs
+# Run the script and tell it about your save and the new folder you made
+python3 ~/Downloads/fuse-no-level-dat/level-fuse.py .minecraft/saves/world1 .minecraft/saves/world1-mean-fs
 ```
-mkdir a/world1-mean-fs
-python3 level-fuse.py a/world1 a/world1-mean-fs
-```
 
-Run minecraft, open and close world1-mean-fs. Quit the filesystem with Ctrl+C.
-Minecraft will have deleted the `level.dat` and `level.dat_old` of world1.
+Run minecraft, open and close the newly created world (`world1-mean-fs` in
+this example), then quit the filesystem with Ctrl+C. Minecraft will have
+deleted the `level.dat` and `level.dat_old` of `world1`.
 
 ## No, mom, I swear it's not cheating
 
